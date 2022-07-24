@@ -1,0 +1,36 @@
+<h2>Projects</h2>
+
+{% for project in projects %}
+    <h3>{{ project.name }}</h3>
+    <span>{{ project.role }}</span>
+    <span>
+        <time>{{ project.start_time }} - {{ project.end_time }}</time>
+    </span>
+    <ul>
+        {% for bullet in project.bullets %}
+        <li>{{ bullet }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+<!--
+<h3>BA-T BASIC</h3>
+<span>Developer</span>
+<span>
+    <time datetime="2017-12">December 2017</time> - <time datetime="2018-4">April 2018</time>
+</span>
+<ul>
+    <li>Built a BASIC Development Environment in Javascript, with a text and font editor, that allows users to create games in
+        the browser.</li>
+    <li>Designed a single pass compiler to convert BASIC code into instructions for a stack based virtual machine.</li>
+</ul>
+<h3>Onehourgamejam.com</h3>
+<span>Contributor</span>
+<span>
+    <time datetime="2019-3">March</time> - <time datetime="2019-4">April 2019</time>
+</span>
+<ul>
+    <li>Revamped the theme voting system and administrative functions of an open-source PHP game jam website.</li>
+    <li>Independently discovered a vulnerability on the site which allowed attackers to operate administrative functions from
+        malicious webpages and fixed the issue by modifying session code to add a randomized token to forms.</li>
+</ul> -->
