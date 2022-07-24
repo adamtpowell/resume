@@ -1,4 +1,5 @@
 #!/bin/bash
 
+rm -f resume.html
 source ./.venv/bin/activate
 python3 output.py > resume.html
