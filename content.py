@@ -11,11 +11,11 @@ content = {
             "name": "University of Massachusetts Amherst",
             "degree": "B.S. in Computer Science",
             "end_time": "May 2022",
-            "gpa": "TODO",
+            "gpa": "GPA: TODO",
         },
         {
             "name": "Minuteman High School",
-            "degree": "Major in Programming and Web Development",
+            "degree": "High School with Major in Programming and Web Development",
             "end_time": "May 2018",
             "gpa": "Graduated as Valedictorian",
         },

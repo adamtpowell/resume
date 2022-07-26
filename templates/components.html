@@ -13,6 +13,19 @@
     </ul>
 {%- endmacro %}
 
+{% macro educationBlock(degree) -%}
+    <div class="doing-details">
+        <h3 class="doing-name">{{ degree.name }}</h3>
+        <span class="doing-role">{{ degree.degree }}</span>
+        <span class="doing-times">
+            <time>{{ degree.end_time }}</time>
+        </span>
+    </div>
+    <div class="gpa">
+        {{ degree.gpa }}
+    </div>
+{%- endmacro %}
+
 {% macro skillsBlock(skills) -%}
     <ul class="skill-list">
         {% for skill in skills %}
