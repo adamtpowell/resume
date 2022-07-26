@@ -137,6 +137,18 @@ content = {
             ],
         },
     ],
+    "leadership": [
+        {
+            "name": "Minuteman High School Advisory Board",
+            "role": "Student / Alumni Member",
+            "start_time": "September 2017",
+            "end_time": "Present",
+            "bullets": [
+                "Worked as the student / alumni member in a team with industry professionals, higher education representatives, and high school teachers.",
+                "Advised the Minuteman High School Programming and Web Development program on changes to the curriculum."
+            ],
+        }
+    ],
     "competitions": [
         {
             "name": "SkillsUSA Web Design and Development",
