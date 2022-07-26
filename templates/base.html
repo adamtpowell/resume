@@ -5,6 +5,18 @@
 <html>
     <head>
         <style>
+            @media screen {
+                body { 
+                    max-width: 70rem;
+                    margin: var(--unit) auto;
+                }
+            }
+
+            @media print {
+                a {
+                    color: black;
+                }
+            }
 
             @font-face {
                 font-family: raleway-medium;
@@ -53,12 +65,18 @@
             }
 
             .bullets {
-                padding-left: var(--unit)
+                padding-left: calc(var(--unit) * 2)
             }
 
             .bullets li::before {
                 content: "\2022";
-                margin-right: 1rem;
+                display: block;
+                position: absolute;
+                left: -1rem;
+            }
+
+            .bullets li {
+                position: relative;
             }
 
             .skill-list li {
@@ -101,8 +119,6 @@
                 font-family: sans-serif;
                 font-size: 12px;
                 line-height: var(--unit);
-
-                background: repeating-linear-gradient(white, white calc(var(--unit) - 1px), lightblue calc(var(--unit) - 1px),  white var(--unit));
             }
         </style>
     </head>
@@ -165,11 +181,16 @@
             </section>
         {% endif %}
 
-        {% if competitions is defined %}
+        {% if leadership is defined %}
             <section>
                 <h2>Leadership</h2>
-                {% include "sections/leadership.html" %}
+                {% for role in leadership %}
+                    {{ components.doingBlock(role) }}
+                {% endfor %}
             </section>
+        {% endif %}
+
+        {% if competitions is defined %}
             <setion>
                 <h2>Other Competitions</h2>
                 {% include "sections/competitions.html" %}
