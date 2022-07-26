@@ -1,12 +1,10 @@
 {% macro doingBlock(doing) -%}
-    <div class="doing-heading">
-        <div class="doing-details">
-            <h3 class="doing-name">{{ doing.name }}</h3>
-            <span class="doing-role">{{ doing.role }}</span>
-            <span class="doing-times">
-                <time>{{ doing.start_time }} - {{ doing.end_time }}</time>
-            </span>
-        </div>
+    <div class="doing-details">
+        <h3 class="doing-name">{{ doing.name }}</h3>
+        <span class="doing-role">{{ doing.role }}</span>
+        <span class="doing-times">
+            <time>{{ doing.start_time }}</time> - <time>{{ doing.end_time }}</time>
+        </span>
     </div>
     <ul class="bullets">
         {% for bullet in doing.bullets %}
@@ -21,4 +19,20 @@
             <li>{{ skill }}</li>
         {% endfor %}
     </ul>
+{%- endmacro %}
+
+<!-- An event is just a doing without associated bullets. -->
+{% macro eventBlock(event) -%}
+<div class="doing-details">
+    <h3 class="doing-name">{{ event.name }}</h3>
+    <span class="doing-role">
+        {{ event.role }}
+    </span>
+    <span class="doing-times">
+        <time>{{ event.start_time }}</time>
+        {% if event.end_time is defined %}
+            - <time>{{ event.end_time }}</time>
+        {% endif %}
+    </span>
+</div>
 {%- endmacro %}

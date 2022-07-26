@@ -152,15 +152,14 @@ content = {
     "competitions": [
         {
             "name": "SkillsUSA Web Design and Development",
-            "placing": "Two time national bronze medalist.",
+            "role": "Two time national bronze medalist.",
             "start_time": "2017",
             "end_time": "2018",
         },
         {
             "name": "Ludum Dare Game Jam Compo",
-            "placing": "Seventh place out of over one thousand entries in category \"Overall\".",
+            "role": "Seventh place out of over one thousand entries in category \"Overall\".",
             "start_time": "2018",
-            "end_time": "2018",
         }
     ],
 }
