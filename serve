@@ -1,0 +1,5 @@
+#!/bin/bash
+
+watch -n 1 ./build &
+
+python3 -m httpwatcher

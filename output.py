@@ -5,4 +5,4 @@ env = Environment(loader=FileSystemLoader('templates'))
 
 resume = env.get_template("base.html")
 
-print(resume.render(projects=content.projects))
+print(resume.render(**content.content))

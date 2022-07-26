@@ -1,0 +1,24 @@
+{% macro doingBlock(doing) -%}
+    <div class="doing-heading">
+        <div class="doing-details">
+            <h3 class="doing-name">{{ doing.name }}</h3>
+            <span class="doing-role">{{ doing.role }}</span>
+            <span class="doing-times">
+                <time>{{ doing.start_time }} - {{ doing.end_time }}</time>
+            </span>
+        </div>
+    </div>
+    <ul class="bullets">
+        {% for bullet in doing.bullets %}
+        <li>{{ bullet }}</li>
+        {% endfor %}
+    </ul>
+{%- endmacro %}
+
+{% macro skillsBlock(skills) -%}
+    <ul class="skill-list">
+        {% for skill in skills %}
+            <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+{%- endmacro %}
