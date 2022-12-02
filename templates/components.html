@@ -3,7 +3,10 @@
         <h3 class="doing-name">{{ doing.name }}</h3>
         <span class="doing-role">{{ doing.role }}</span>
         <span class="doing-times">
-            <time>{{ doing.start_time }}</time> - <time>{{ doing.end_time }}</time>
+            <time>{{ doing.start_time }}</time> 
+            {% if doing.end_time is defined %}
+                - <time>{{ doing.end_time }}</time>
+            {% endif %}
         </span>
     </div>
     <ul class="bullets">
@@ -18,20 +21,37 @@
         <h3 class="doing-name">{{ degree.name }}</h3>
         <span class="doing-role">{{ degree.degree }}</span>
         <span class="doing-times">
-            <time>{{ degree.end_time }}</time>
+            Graduated <time>{{ degree.end_time }}</time>
         </span>
     </div>
-    <div class="gpa">
-        {{ degree.gpa }}
-    </div>
+    {% if degree.gpa is defined %}
+        <div class="gpa">
+            {{ degree.gpa }}
+        </div>
+    {% endif %}
+{%- endmacro %}
+
+{% macro coursesBlock(skills) -%}
+    <ul class="skill-list">
+        {% for skill in skills %}
+            <li class="skill">{{ skill }}</li>
+        {% endfor %}
+    </ul>
 {%- endmacro %}
 
 {% macro skillsBlock(skills) -%}
-    <ul class="skill-list">
-        {% for skill in skills %}
-            <li>{{ skill }}</li>
+    <div class="skills-container">
+        {% for category in skills %}
+        <div class="skills-list-wrapper">
+            <h3>{{ category }}</h3>
+            <ul class="skill-list">
+                {% for skill in skills[category] %}
+                    <li class="skill">{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 {%- endmacro %}
 
 <!-- An event is just a doing without associated bullets. -->

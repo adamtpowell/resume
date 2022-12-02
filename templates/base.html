@@ -4,9 +4,12 @@
 
 <html>
     <head>
+        <link rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600">
+
         <style>
             @media screen {
-                body { 
+                body {
                     max-width: 70rem;
                     margin: var(--unit) auto;
                 }
@@ -15,16 +18,8 @@
             @media print {
                 a {
                     color: black;
+                    text-decoration: none;
                 }
-            }
-
-            @font-face {
-                font-family: raleway-medium;
-                src: url(fonts/Raleway-Medium.ttf);
-            }
-            @font-face {
-                font-family: raleway-semibold;
-                src: url(fonts/Raleway-SemiBold.ttf);
             }
 
             *, *::before, *::after {
@@ -37,7 +32,9 @@
             }
 
             h1 {
-                font-size: var(--unit);
+                font-size: calc(var(--unit) * 1.5);
+                margin-bottom: calc(var(--unit) / 2);
+                margin-top: 0.1rem; /* Fix for top of text being cutoff */
                 text-align: center;
             }
 
@@ -57,7 +54,8 @@
 
             h3 {
                 font-size: 1rem;
-                font-family: raleway-semibold;
+                font-family: 'Raleway';
+                font-weight: 600;
             }
 
             li {
@@ -80,7 +78,7 @@
             }
 
             .skill-list li {
-                display: inline;
+                display: inline-block;
             }
 
             .skill-list li:not(:last-of-type)::after {
@@ -89,6 +87,11 @@
 
             .skill-list {
                 padding: 0;
+            }
+
+            .skills-container > .skills-list-wrapper {
+                display: inline-block;
+                margin-right: 3rem;
             }
 
             section {
@@ -111,15 +114,25 @@
 
             .doing-times {
                 margin-left: auto;
-                font-family: raleway-semibold;
+                font-family: 'Raleway';
+                font-weight: 600;
             }
 
             :root {
                 --unit: 1.4rem;
 
-                font-family: raleway-medium;
-                font-size: 11pt;
+                font-family: 'Raleway';
+                font-weight: 400;
+                font-size: 10pt;
                 line-height: var(--unit);
+            }
+
+            hr {
+                border: none;
+                border-bottom: 1px solid gray;
+                height: 1px;
+                margin-top: calc(var(--unit) / 2);
+                margin-bottom: var(--unit);
             }
         </style>
     </head>
@@ -127,17 +140,21 @@
         {% if name is defined %}
             <h1>{{ name }}</h1>
         {% endif %}
-        
+
         {% if contact_info is defined %}
             <section>
                 <ul class="contact-info">
-                    <li>Amherst, MA / Arlington, MA</li>
-                    <li>(781)507-6553</li>
-                    <li>atpowell99@gmail.com</li> <!-- TODO: Create professional email address -->
-                    <li><a href="https://github.com/adamtpowell">github.com/adamtpowell</a></li>
+                    <li>{{ contact_info.location }}</li>
+                    <li><a href="tel:{{ contact_info.phone_number.url }}"">{{ contact_info.phone_number.text}}</a></li>
+                    <li><a href="mailto:{{contact_info.email}}">{{ contact_info.email }}</a></li> <!-- TODO: Create professional email address -->
+                    {% if contact_info.website is defined %}
+                        <li><a href="{{ contact_info.website.url }}">{{ contact_info.website.text }}</a></li>
+                    {% endif %}
                 </ul>
             </section>
         {% endif %}
+
+        <hr />
 
         {% if education is defined %}
             <section>
@@ -151,7 +168,7 @@
         {% if courses is defined %}
             <section>
                 <h2>Relevant Coursework</h2>
-                {{ components.skillsBlock(courses) }}
+                {{ components.coursesBlock(courses) }}
             </section>
         {% endif %}
 
