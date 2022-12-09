@@ -3,7 +3,7 @@
         <h3 class="doing-name">{{ doing.name }}</h3>
         <span class="doing-role">{{ doing.role }}</span>
         <span class="doing-times">
-            <time>{{ doing.start_time }}</time> 
+            <time>{{ doing.start_time }}</time>
             {% if doing.end_time is defined %}
                 - <time>{{ doing.end_time }}</time>
             {% endif %}
@@ -26,7 +26,7 @@
     </div>
     {% if degree.gpa is defined %}
         <div class="gpa">
-            {{ degree.gpa }}
+            GPA: {{ degree.gpa }}
         </div>
     {% endif %}
 {%- endmacro %}

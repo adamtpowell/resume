@@ -17,6 +17,7 @@ content = {
             "name": "University of Massachusetts Amherst",
             "degree": "B.S. in Computer Science",
             "end_time": "May 2022",
+            "gpa": "3.36",
         },
         # {
         #     "name": "Minuteman High School",
